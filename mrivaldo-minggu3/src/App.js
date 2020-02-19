@@ -46,7 +46,7 @@ function App() {
     <div class="row">
       <div class="col-md4">
         <div class="foto">
-           <img src="https://malangvoice.com/wp-content/uploads/2019/06/polinema.jpg" alt="" width="300" height="auto"/>
+           <img src={(require("../src/foto.jpg"))} alt="" width="300" height="auto"/>
         </div>   
       </div>
       <div class="col-md-8 kertas-biodata">
