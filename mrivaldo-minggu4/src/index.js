@@ -8,11 +8,12 @@ import * as serviceWorker from './serviceWorker';
 //     return <p> Ini adalah function component    </p>
 // }
 
-const HelloWorld = () =>{
-    return <p> Ini adalah arrow function </p>
-}
+// const HelloWorld = () =>{
+//     return <p> Ini adalah arrow function </p>
+// }
 
-ReactDOM.render(<HelloWorld/>, document.getElementById('root'));
+
+ReactDOM.render(</>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
