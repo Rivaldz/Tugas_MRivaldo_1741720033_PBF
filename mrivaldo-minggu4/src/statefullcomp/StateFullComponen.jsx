@@ -1,39 +1,35 @@
 import React from 'react';
+import './desain.css';
 
 class StateFullComponen extends React.Component{
     render(){
         // return <p>Test statefull componen</p>
         return (
-            <div class="form__login">
-  <h1 class="form__header">Login</h1>
+            <div class="kotak_login form_ini" align="center">
+            <h2>Form Login</h2>
+            <br/>
+            <div class="border_div">
+            <form>
+                <h2>  Tugas Pertemuan Ke Empat</h2>
+                <label> Username </label>
+		        <input type="text" name="username" class="form_login" placeholder="Username"/>
 
-  <form id="loginForm" action="#" method="post" class="form">
-    <fieldset class="form__group">
-      <label for="mail"><span class="label__icon fa fa-at"></span></label>
+                <label> Password </label>
+                <input type="text" name="password" class="form_login" placeholder="Password"/>
 
-      <input id="mail" name="mail" class="form__element" type="email" placeholder="Email" required />
-    </fieldset>
+                <input type="submit" class="tombol_login" value="LOGIN"/>
 
-    <fieldset class="form__group">
-      <label for="password"><span class="label__icon fa fa-lock"></span></label>
+                <label for="checkbox"><input id="checkbox" name="checkbox" class="checkbox--forget" type="checkbox" />
+                <span class="icon--checkbox fa fa-check"></span> Remember me</label>
+                <br/>
+                <br/>
+                <br/>
 
-      <input id="password" name="password" class="form__element" type="password" placeholder="Password" required />
-    </fieldset>
-
-    <fieldset class="form__group">
-      <label for="checkbox"><input id="checkbox" name="checkbox" class="checkbox--forget" type="checkbox" /><span class="icon--checkbox fa fa-check"></span> Remember me</label>
-
-      <a class="form__link link--right" href="#">Forgot your password?</a>
-    </fieldset>
-
-    <fieldset class="form__group">
-      <input class="form__button" type="submit" value="Login" />
-    </fieldset>
-
-    <small>Not a member yet? <label for="flipper__checkbox" class="form__link">Create your account</label>.</small>
-  </form>
-</div>
-    
+                {/* <input type="submit" class="tombol_login2" value="LOGIN"/> */}
+                <button class="tombol_login2">Cancel</button>
+            </form>
+        </div>
+            </div>
         )
     }
 }
