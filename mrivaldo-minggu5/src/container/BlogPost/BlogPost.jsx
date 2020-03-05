@@ -8,10 +8,10 @@ class BlogPost extends Component{
         insertMahasiswa:{
             NIM : 1,
             nama: 1,
-            alamat: " ",
-            hp:" ",
+            alamat: "",
+            hp:"",
             angkatan: 1,
-            status: " "
+            status: ""
         }
     }
 
@@ -20,7 +20,7 @@ class BlogPost extends Component{
             .then(response => response.json())
             .then(jsonHasilAmbilDariAPI => {
                 this.setState({
-                    listartikel: jsonHasilAmbilDariAPI
+                    listMahasiswa: jsonHasilAmbilDariAPI
                 })
 
             })
@@ -45,7 +45,7 @@ class BlogPost extends Component{
         formInsertArtikel['id'] = timestamp;
         formInsertArtikel[event.target.name] = event.target.value;
         this.setState({
-            insertArtikel: formInsertArtikel
+            insertMahasiswa: formInsertArtikel
         });
     }
 
@@ -56,7 +56,7 @@ class BlogPost extends Component{
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.state.insertArtikel)
+            body: JSON.stringify(this.state.insertMahasiswa)
         })
             .then((Response) => {
                 this.ambilDataDariServerAPI();
@@ -68,15 +68,36 @@ class BlogPost extends Component{
             <div className="post-artikel">
               <div className="form pb-2 border-bottom">
                 <div className="form-group row">
-                    <label htmlFor="title" className="col-sm-2 col-form-label">Judul</label>
+                    <label htmlFor="title" className="col-sm-2 col-form-label">NIM</label>
                     <div className="col-sm-10">
-                        <input type="text" className="form-control" id="title" name="title" onChange={this.handleTambahArtikel} />
+                        <input type="text" className="form-control" id="NIM" name="NIM" onChange={this.handleTambahArtikel} />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label htmlFor="body" className="col-sm-2 col-form-label"> isi </label>
+                    <label htmlFor="body" className="col-sm-2 col-form-label">Nama</label>
                     <div className="col-sm-10">
-                        <textarea className="form-control" name="body" id="body" rows="3" onChange={this.handleTambahArtikel}></textarea>
+                        <input className="form-control" name="nama" id="nama" rows="3" onChange={this.handleTambahArtikel}/>
+                    </div>
+                 </div>
+                <div className="form-group row">
+                    <label htmlFor="body" className="col-sm-2 col-form-label">Alamat</label>
+                    <div className="col-sm-10">
+                        <input className="form-control" name="alamat" id="alamat" rows="3" onChange={this.handleTambahArtikel}/>
+                    </div>
+                 </div>                <div className="form-group row">
+                    <label htmlFor="body" className="col-sm-2 col-form-label">No HP</label>
+                    <div className="col-sm-10">
+                        <input className="form-control" name="no" id="no" rows="3" onChange={this.handleTambahArtikel}/>
+                    </div>
+                 </div>                <div className="form-group row">
+                    <label htmlFor="body" className="col-sm-2 col-form-label">angkatan</label>
+                    <div className="col-sm-10">
+                        <input className="form-control" name="angkatan" id="angkatan" rows="3" onChange={this.handleTambahArtikel}/>
+                    </div>
+                 </div>                <div className="form-group row">
+                    <label htmlFor="body" className="col-sm-2 col-form-label">Status</label>
+                    <div className="col-sm-10">
+                        <input className="form-control" name="status" id="status" rows="3" onChange={this.handleTambahArtikel}/>
                     </div>
                  </div>
                 <button type="submit" className="btn btn-primary" onClick={this.handleTombolSimpan}>Simpan</button>
@@ -85,8 +106,8 @@ class BlogPost extends Component{
               <h2>Daftar Mahasiswa</h2>
               {
                this.state.listMahasiswa.map(mahasiswa => {
-                        return <Post key={mahasiswa.id} nim={mahasiswa.NIM} nama={mahasiswa.nama} alamat={mahasiswa.alamat} hp={mahasiswa.hp} angkatan={mahasiswa.angkatan} status={mahasiswa.status} idMahasiswa={mahasiswa.id} hapusMahasiswa={this.handleHapusMahasiswa }/>  })
-
+                        return <Post key={mahasiswa.id} nim={mahasiswa.NIM} nama={mahasiswa.nama} alamat={mahasiswa.alamat} hp={mahasiswa.hp} angkatan={mahasiswa.angkatan} status={mahasiswa.status} idMahasiswa={mahasiswa.id} hapusMahasiswa={this.handleHapusArtikel}/>  
+                        })
               }
             </div>
         )

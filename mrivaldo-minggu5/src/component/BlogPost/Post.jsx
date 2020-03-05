@@ -2,14 +2,18 @@ import React from "react";
 
 const Post = (props) => {
     return (
-           <div className="artikel">
+           <div className="mahasiswa">
                 <div className="gambar-artikel">
                     <img src="http://placeimg.com/80/80/tech" alt=" Gambar tumbnail artiker"/>
                 </div>     
                 <div className="konten-artikel">
-                    <div className="judul-artikel">{props.judul}</div>
-                    <p className="isi-artikel">{props.isi}</p>
-                    <button className="btn btn-sm btn-warning" onClick={() => props.hapusArtikel(props.idArtikel)}>Hapus</button>
+                    <p className="isi-artikel"> NIM    : {props.nim}</p>
+                    <p className="isi-artikel"> Nama   :{props.nama}</p>
+                    <p className="isi-artikel"> Alamat :{props.alamat}</p>
+                    <p className="isi-artikel"> HP :{props.hp}</p>
+                    <p className="isi-artikel"> Angkatan :{props.angkatan}</p>
+                    <p className="isi-artikel"> Status :{props.status}</p>
+                    <button className="btn btn-sm btn-warning" onClick={() => props.hapusMahasiswa(props.key)}>Hapus</button>
                 </div>
               </div>
     )
