@@ -7,9 +7,10 @@ class BlogPost extends Component{
         listMahasiswa: [],
         insertMahasiswa:{
             NIM : 1,
+            id : 1,
             nama: 1,
             alamat: "",
-            hp:"",
+            hp: 1,
             angkatan: 1,
             status: ""
         }
@@ -84,10 +85,11 @@ class BlogPost extends Component{
                     <div className="col-sm-10">
                         <input className="form-control" name="alamat" id="alamat" rows="3" onChange={this.handleTambahArtikel}/>
                     </div>
-                 </div>                <div className="form-group row">
+                 </div>                
+                 <div className="form-group row">
                     <label htmlFor="body" className="col-sm-2 col-form-label">No HP</label>
                     <div className="col-sm-10">
-                        <input className="form-control" name="no" id="no" rows="3" onChange={this.handleTambahArtikel}/>
+                        <input className="form-control" name="hp" id="hp" rows="3" onChange={this.handleTambahArtikel}/>
                     </div>
                  </div>                <div className="form-group row">
                     <label htmlFor="body" className="col-sm-2 col-form-label">angkatan</label>
