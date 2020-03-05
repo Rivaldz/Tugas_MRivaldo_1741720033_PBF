@@ -4,13 +4,14 @@ import Post from "../../component/BlogPost/Post";
 
 class BlogPost extends Component{
     state ={
-        listartikel: [],
-        insertArtikel:{
-            userId: 1,
-            id: 1,
-            title: "",
-            body: ""
-
+        listMahasiswa: [],
+        insertMahasiswa:{
+            NIM : 1,
+            nama: 1,
+            alamat: " ",
+            hp:" ",
+            angkatan: 1,
+            status: " "
         }
     }
 
@@ -38,35 +39,8 @@ class BlogPost extends Component{
         // console.log.this.ambilDataDariServerAPI()
     }
 
-    deleteProduct(productId) {
-    const { products } = this.state;
-
-    const apiUrl = 'http://localhost/dev/tcxapp/reactapi/deleteProduct';
-    const formData = new FormData();
-    formData.append('productId', productId);
-
-    const options = {
-      method: 'POST',
-      body: formData
-    }
-
-    fetch(apiUrl, options)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            response: result,
-            products: products.filter(product => product.id !== productId)
-          });
-        },
-        (error) => {
-          this.setState({ error });
-        }
-      )
-    }
-
     handleTambahArtikel = (event) => {
-        let formInsertArtikel = {...this.state.insertArtikel};
+        let formInsertArtikel = {...this.state.insertMahasiswa};
         let timestamp = new Date().getTime();
         formInsertArtikel['id'] = timestamp;
         formInsertArtikel[event.target.name] = event.target.value;
@@ -104,15 +78,14 @@ class BlogPost extends Component{
                     <div className="col-sm-10">
                         <textarea className="form-control" name="body" id="body" rows="3" onChange={this.handleTambahArtikel}></textarea>
                     </div>
-                </div>
+                 </div>
                 <button type="submit" className="btn btn-primary" onClick={this.handleTombolSimpan}>Simpan</button>
               
-              </div>
-              <h2>Daftar Artikel</h2>
+                 </div>
+              <h2>Daftar Mahasiswa</h2>
               {
-                  this.state.listartikel.map(artikel => {
-                      return <Post key={artikel.id} judul={artikel.title} isi={artikel.body} idArtikel={artikel.id} hapusArtikel={this.handleHapusArtikel}/>
-                  })
+               this.state.listMahasiswa.map(mahasiswa => {
+                        return <Post key={mahasiswa.id} nim={mahasiswa.NIM} nama={mahasiswa.nama} alamat={mahasiswa.alamat} hp={mahasiswa.hp} angkatan={mahasiswa.angkatan} status={mahasiswa.status} idMahasiswa={mahasiswa.id} hapusMahasiswa={this.handleHapusMahasiswa }/>  })
 
               }
             </div>
