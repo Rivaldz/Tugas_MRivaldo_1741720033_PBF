@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "NIM": "17526367",
+      "id": 1583413740361,
+      "nama": "RIvaldo Setyo P",
+      "alamat": "jl ikan gurame Malang",
+      "hp": "021338237",
+      "angkatan": "2017",
+      "status": "mahasiswa"
+    },
+    {
+      "NIM": "17526367341",
+      "id": 1583413761563,
+      "nama": "RIvaldo Setyo Purnomo",
+      "alamat": "jl ikan gurame Malang jawa timur",
+      "hp": "021338237889",
+      "angkatan": "2019",
+      "status": "aktif"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
