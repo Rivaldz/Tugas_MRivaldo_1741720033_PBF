@@ -13,7 +13,7 @@ const Post = (props) => {
                     <p className="isi-artikel"> {props.hp}</p>
                     <p className="isi-artikel"> {props.angkatan}</p>
                     <p className="isi-artikel"> {props.status}</p>
-                    <button className="btn btn-sm btn-warning" onClick={() => props.hapusMahasiswa(props.id)}>Hapus</button>
+                    <button className="btn btn-sm btn-warning" onClick={() => props.hapusMahasiswa(props.idMahasiswa)}>Hapus</button>
                 </div>
               </div>
     )
