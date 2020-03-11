@@ -31,7 +31,49 @@ export default function Main() {
             </li>
           </ul>
         </nav>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/product">
+            <Product />
+          </Route>          
+          <Route exact path="/about">
+            <About/>
+          </Route>          
+          <Route exact path="/profil">
+            <Profil/>
+          </Route>
+        </Switch>
     </div>
 </Router>
   );
 }
+
+function Home(){
+  return (
+    <div>
+      <h2>INI ADALAH HALAMAN AWAL</h2>
+    </div>
+  );
+}
+function Product(){
+  return (
+    <div>
+      <h2>INI ADALAH HALAMAN Product</h2>
+    </div>
+  );
+}function Profil(){
+  return (
+    <div>
+      <h2>INI ADALAH HALAMAN profil</h2>
+    </div>
+  );
+}function About(){
+  return (
+    <div>
+      <h2>INI ADALAH HALAMAN about</h2>
+    </div>
+  );
+}
+
