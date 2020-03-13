@@ -7,7 +7,8 @@ import {
   Switch,
   Route,
   useParams,
-  useRouteMatch
+  useRouteMatch,
+  Link
 } from "react-router-dom";
 
 
@@ -15,19 +16,19 @@ export default function Main() {
   return (
     <Router>
     <div className="App">
-      <nav class=" navbar navbar-expand-sm bg-primary navbar-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Rivaldo Shop</a>
+      <nav className=" navbar navbar-expand-sm bg-primary navbar-dark">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a className="nav-link" href="/">Rivaldo Shop</a>
           </li>
-          <li class="nav-item">
-             <a class="nav-link" href="/product">Lihat Product</a>
+          <li className="nav-item">
+             <a className="nav-link" href="/product">Lihat Product</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+          <li className="nav-item">
+              <a className="nav-link" href="/about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/profil">Profil</a>
+            <li className="nav-item">
+              <a className="nav-link" href="/profil">Profil</a>
             </li>
           </ul>
         </nav>
@@ -35,7 +36,7 @@ export default function Main() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/product">
+          <Route path="/product">
             <Product />
           </Route>          
           <Route exact path="/about">
@@ -58,12 +59,45 @@ function Home(){
   );
 }
 function Product(){
+  let { path, url} = useRouteMatch();
   return (
     <div>
-      <h2>INI ADALAH HALAMAN Product</h2>
+      <h2>INI ADALAH HALAMAN PRODUCT</h2>
+      {/* <div class="container"> */}
+        <Link to={`${url}/Elektronik,Murah Meriah Bosss`}>
+        <button type="button" className="btn btn-primary" > Elektronik  </button>
+        {/* Jancuocok */}
+         </Link>
+      {/* </div> */}
+
+      <button type="button" className="btn btn-danger" href={`${url}/makanan`}> Makanan</button>
+      <button type="button" className="btn btn-info" href={`${url}/fasion`}> Fasion</button>
+
+      <Switch>
+        <Route exact path={path}>
+            <h3> Please Pilih Katagori.</h3>
+        </Route>
+        <Router path={`${path}/:kategori`}>
+          <Produk />
+        </Router>
+      </Switch>
     </div>
   );
-}function Profil(){
+}
+
+function Produk(){
+  let { kategori } = useParams();
+  return(
+    <div>
+      <h3>
+        { kategori }
+      </h3>
+    </div>
+
+  );
+}
+
+function Profil(){
   return (
     <div>
       <h2>INI ADALAH HALAMAN profil</h2>
