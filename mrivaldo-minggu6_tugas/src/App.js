@@ -8,7 +8,9 @@ import {
   Route,
   useParams,
   useRouteMatch,
-  Link
+  Link,
+  useLocation,
+  useHistoy
 } from "react-router-dom";
 
 export default function NestingExample(){
@@ -47,6 +49,14 @@ export default function NestingExample(){
           <Route exact path="/">
               {/* <Topics /> */}
               <Home/>
+          </Route>
+
+          <Route exact path="/about">
+              <About/>
+          </Route>
+
+          <Route exact path="/profil">
+            <Profil/>
           </Route>
 
           <Route path="/topics">
@@ -93,20 +103,16 @@ function Topics(){
 }
 
 function Topic() {
-  let { topicId } = useParams();
-  return(
-    <Link to={topicId}></Link>
-    <h5> {topicId} </h5>
 
-     <Route path="/Elektronik">
-     <Elektronik />
-     </Route>
-  );
+  let {terter} = useParams();
+    return(
+      <h4>{terter}</h4>
+    )
 }
 
 function Elektronik(){
   return(
-    <h5> INi ADALAH ELEKTRONIK</h5>
+    <h4> INi ADALAH ELEKTRONIK</h4>
   )
 }
 
