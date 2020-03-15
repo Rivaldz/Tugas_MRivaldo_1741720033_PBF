@@ -18,34 +18,37 @@ export default function NestingExample(){
   return(
     <Router>
       <div className="App">
+      {/* <AuthButton/> */}
+
       <nav className=" navbar navbar-expand-sm bg-primary navbar-dark">
         <ul className="navbar-nav">
+
           <li className="nav-item">
-            <a className="nav-link" href="/">Rivaldo Shop</a>
+            <Link to="/">
+            <a className="nav-link" >Rivaldo Shop</a>
+            </Link>
           </li>
+
           <li className="nav-item">
-            <Link to="topics"> 
+            <Link to="/topics"> 
              <a className="nav-link">Lihat Product</a>
             </Link>
           </li>
           <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
+              <Link to="/about">
+              <a className="nav-link">About</a>
+              </Link>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href="/profil">Profil</a>
+              <Link to = "/profil">
+              <a className="nav-link">Profil</a>
+              </Link>
             </li>
+
           </ul>
         </nav>
-      {/* <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/topics">Topics</Link>
-          </li>
-        </ul>
-        <hr/> */}
+
         <Switch>
           <Route exact path="/">
               {/* <Topics /> */}
@@ -262,7 +265,7 @@ function LoginPage(){
   return (
     <div>
       <p> you must log in to view the page at {from.pathname}</p>
-      <button onClick={login}>Log In</button>
+      <button className="btn btn-info" onClick={login}>Log In</button>
     </div>
   );
 }
