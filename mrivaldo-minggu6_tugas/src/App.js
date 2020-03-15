@@ -10,7 +10,8 @@ import {
   useRouteMatch,
   Link,
   useLocation,
-  useHistoy
+  useHistory,
+  Redirect
 } from "react-router-dom";
 
 export default function NestingExample(){
@@ -31,7 +32,7 @@ export default function NestingExample(){
               <a className="nav-link" href="/about">About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/profil">Profil</a>
+              <a className="nav-link" href="/private">Profil</a>
             </li>
           </ul>
         </nav>
@@ -55,9 +56,13 @@ export default function NestingExample(){
               <About/>
           </Route>
 
-          <Route exact path="/profil">
-            <Profil/>
+          <Route path="/login">
+            <LoginPage/>
           </Route>
+
+          <PrivateRoute path = "/private">
+            <Profil/>
+          </PrivateRoute>
 
           <Route path="/topics">
               <Topics/>
@@ -121,13 +126,14 @@ function Main() {
     <Router>
       <h4>INI adalah Main</h4>
     <div className="App">
+    <AuthButton/>
       <nav className=" navbar navbar-expand-sm bg-primary navbar-dark">
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link" href="/">Rivaldo Shop</a>
           </li>
           <li className="nav-item">
-            <Link to="product"> 
+            <Link to="/product"> 
              <a className="nav-link">Lihat Product</a>
             </Link>
           </li>
@@ -135,7 +141,9 @@ function Main() {
               <a className="nav-link" href="/about">About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/profil">Profil</a>
+            <Link to="/profil">
+              <a className="nav-link" >Profil</a>
+            </Link>
             </li>
           </ul>
         </nav>
@@ -153,9 +161,13 @@ function Main() {
             <About/>
           </Route>          
 
-          <Route exact path="/profil">
-            <Profil/>
+          <Route path="/login">
+            <LoginPage/>
           </Route>
+
+          <PrivateRoute path="/profil">
+            <Profil/>
+          </PrivateRoute>
 
         </Switch>
     </div>
@@ -216,13 +228,95 @@ function Produk(){
 function Profil(){
   return (
     <div>
+      <AuthButton/>
+
       <h2>INI ADALAH HALAMAN profil</h2>
+      {/* <button className="btn btn-info">Login</button> */}
     </div>
   );
-}function About(){
+}
+function About(){
   return (
     <div>
       <h2>INI ADALAH HALAMAN about</h2>
+    </div>
+  );
+}
+
+const fakeAuth = {
+  isAuthenticated : false,
+  authenticate(cb){
+    fakeAuth.isAuthenticated = true;
+    setTimeout(cb,100);
+  },
+  signout(cb){
+    fakeAuth.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
+
+function AuthButton(){
+  let history = useHistory();
+
+  return fakeAuth.isAuthenticated ? (
+    <p>
+      Welcome!{" "}
+      <button 
+        onClick={() => {
+          fakeAuth.signout(() => history.push('/'));
+        }}
+        >
+        SignOut
+      </button>
+    </p>
+  ) : (
+    <p>You are not logged in.</p>
+  );
+}
+
+function PrivateRoute({children, ...rest}){
+  return(
+    <Route
+      {...rest}
+      render = {({ location }) => 
+        fakeAuth.isAuthenticated ? (
+          children
+        ) : (
+          <Redirect 
+            to={{
+              pathname: "/login",
+              state: {from: location}
+            }}
+            />
+        )
+       }
+    />
+  );
+}
+
+function PublicPage() {
+  return <h3> Public </h3>;
+}
+
+function ProtectedPage(){
+  return <h3>Private</h3>
+}
+
+function LoginPage(){
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: {pathname: "/"} };
+  let login = () => {
+    fakeAuth.authenticate(() => {
+      history.replace(from);
+    });
+  }
+
+  return (
+    <div>
+      <p> you must log in to view the page at {from.pathname}</p>
+      <button onClick={login}>Log In</button>
     </div>
   );
 }
