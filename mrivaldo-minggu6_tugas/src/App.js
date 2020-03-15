@@ -32,7 +32,7 @@ export default function NestingExample(){
               <a className="nav-link" href="/about">About</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/private">Profil</a>
+              <a className="nav-link" href="/profil">Profil</a>
             </li>
           </ul>
         </nav>
@@ -60,7 +60,7 @@ export default function NestingExample(){
             <LoginPage/>
           </Route>
 
-          <PrivateRoute path = "/private">
+          <PrivateRoute path = "/profil">
             <Profil/>
           </PrivateRoute>
 
@@ -119,60 +119,6 @@ function Elektronik(){
   return(
     <h4> INi ADALAH ELEKTRONIK</h4>
   )
-}
-
-function Main() {
-  return (
-    <Router>
-      <h4>INI adalah Main</h4>
-    <div className="App">
-    <AuthButton/>
-      <nav className=" navbar navbar-expand-sm bg-primary navbar-dark">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link" href="/">Rivaldo Shop</a>
-          </li>
-          <li className="nav-item">
-            <Link to="/product"> 
-             <a className="nav-link">Lihat Product</a>
-            </Link>
-          </li>
-          <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
-            </li>
-            <li className="nav-item">
-            <Link to="/profil">
-              <a className="nav-link" >Profil</a>
-            </Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-          <Route path="/product">
-            <Product />
-          </Route>          
-
-          <Route exact path="/about">
-            <About/>
-          </Route>          
-
-          <Route path="/login">
-            <LoginPage/>
-          </Route>
-
-          <PrivateRoute path="/profil">
-            <Profil/>
-          </PrivateRoute>
-
-        </Switch>
-    </div>
-</Router>
-  );
 }
 
 function Home(){
