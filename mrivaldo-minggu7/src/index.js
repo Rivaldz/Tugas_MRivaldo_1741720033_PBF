@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose} from 'redux'
+import MainReducer from './reducers/MainReducer'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import registerServiceWorker from './'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
