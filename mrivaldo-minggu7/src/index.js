@@ -15,7 +15,7 @@ const store = compose(window.devToolsExtension ? window.devToolsExtension() : f 
 f)(createStore)(MainReducer)
 
 ReactDOM.render(<Provider store={store}> 
-<Table/>
+<App/>
 </Provider>
 , document.getElementById('root')); 
 // registerServiceWorker();
