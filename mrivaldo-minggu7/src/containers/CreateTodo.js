@@ -5,7 +5,8 @@ import {bindActionCreators} from 'redux'
 
 class CreateTodo extends Component { 
     constructor(props){
-    super(props) this.state = {
+    super(props) 
+    this.state = {
     todotext: '', 
     }
     this.onChangeTodoText = this.onChangeTodoText.bind(this) 
