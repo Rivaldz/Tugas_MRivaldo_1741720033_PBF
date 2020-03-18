@@ -190,7 +190,7 @@ function Profil(){
     <div>
       <AuthButton/>
 
-      <h2>INI ADALAH HALAMAN profil</h2>
+      <h2>INI ADALAH HALAMAN profil on53n</h2>
       {/* <button className="btn btn-info">Login</button> */}
     </div>
   );
