@@ -102,21 +102,25 @@ function Topics(){
         <h3> Please Select a Topics.</h3>
         </Route>
 
-        <Route exact path={`${path}/:topicId`}>
+        <Route exact path={`${path}/:topicId`} component >
+
+        
           <Topic/>
         </Route>
+
       </Switch>
     </div>
   );
 }
 
 function Topic() {
-
-  let {terter} = useParams();
+  let {topicId} = useParams();
+  
     return(
-      <h4>{terter}</h4>
+      <h4>{topicId}</h4>
     )
 }
+
 
 function Elektronik(){
   return(
@@ -139,19 +143,26 @@ function Product(){
       {/* <div class="container"> */}
       <li>
         <Link to={`${url}/Elektronik, Murah Meriah Bosss`}>
-        {/* <button type="button" className="btn btn-primary" > elektronik  </button> */}
+        <button type="button" className="btn btn-primary" href="/eletronik"> elektronik  </button>
         {/* Jancuocok */}
         ini test 
          </Link>
       {/* </div> */}
       </li>
 
-      <button type="button" className="btn btn-danger" href={`${url}/makanan`}> Makanan</button>
-      <button type="button" className="btn btn-info" href={`${url}/fasion`}> Fasion</button>
+      <button type="button" className="btn btn-danger" href="/makanan"> Makanan</button>
+      <button type="button" className="btn btn-info" href="/fasion"> Fasion</button>
 
       <Switch>
         <Route exact path={path}>
             <h3> Please Pilih Katagori.</h3>
+        </Route>
+        <Route exact path="/makanan">
+
+        </Route>
+
+        <Route exact path="/fasion">
+
         </Route>
 
         <Router exact path={`${path}/:produkId`}>
