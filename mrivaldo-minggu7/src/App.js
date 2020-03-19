@@ -10,8 +10,8 @@ function App() {
 
 
     <div className="App">
-    <Table/>
     <CreateTodo/>
+    <Table/>
       {/* <header>
       </header> */}
     </div>
