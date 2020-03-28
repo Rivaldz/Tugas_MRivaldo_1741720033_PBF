@@ -9,24 +9,87 @@ import {
   BrowserRouter as Router, 
   Switch,
   Link,
-  Route 
+  Route,
+  Redirect,
+  useHistory
+
   } from "react-router-dom";
 
 function App() {
   return (
     <Router>
     <div className="App">
+
+
       <Header/>
+      <br/>
+      <AuthButton/>
       <Switch>
-        <Route path="/profile" component={ Profil }>
+        {/* <Route path="/profile" component={ Profil }>
           <Profil/>
-        </Route>
+        </Route> */}
         <Route path="/login" component={Login}>
           <Login/>
         </Route>
+
+        <PrivateRoute path="/profile">
+        <Profil/>
+        </PrivateRoute>
+
       </Switch>
     </div>
 </Router>
+  );
+}
+
+const fakeAuth = {
+  isAuthenticated : false,
+  authenticate(cb){
+    fakeAuth.isAuthenticated = true;
+    setTimeout(cb,100);
+  },
+  signout(cb){
+    fakeAuth.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
+
+function PrivateRoute({children, ...rest}){
+  return(
+    <Route
+      {...rest}
+      render = {({ location }) => 
+        fakeAuth.isAuthenticated ? (
+          children
+        ) : (
+          <Redirect 
+            to={{
+              pathname: "/login",
+              state: {from: location}
+            }}
+            />
+        )
+       }
+    />
+  );
+}
+
+function AuthButton(){
+  let history = useHistory();
+
+  return fakeAuth.isAuthenticated ? (
+    <p>
+      Welcome!{" "}
+      <button 
+        onClick={() => {
+          fakeAuth.signout(() => history.push('/'));
+        }}
+        >
+        SignOut
+      </button>
+    </p>
+  ) : (
+    <p>You are not logged in.</p>
   );
 }
 

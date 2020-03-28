@@ -12,6 +12,7 @@ import {
 const Login = () => {
     return(
     <div className="auth-page">
+        <AuthButton/>
         <div className="container page">
           <div className="row">
 
@@ -81,6 +82,26 @@ const fakeAuth = {
   }
 };
 
+function PrivateRoute({children, ...rest}){
+  return(
+    <Route
+      {...rest}
+      render = {({ location }) => 
+        fakeAuth.isAuthenticated ? (
+          children
+        ) : (
+          <Redirect 
+            to={{
+              pathname: "/login",
+              state: {from: location}
+            }}
+            />
+        )
+       }
+    />
+  );
+}
+
 function LoginPage(){
   let history = useHistory();
   let location = useLocation();
@@ -104,6 +125,25 @@ function LoginPage(){
                     Sign in
         </button>
     </div>
+  );
+}
+
+function AuthButton(){
+  let history = useHistory();
+
+  return fakeAuth.isAuthenticated ? (
+    <p>
+      Welcome!{" "}
+      <button 
+        onClick={() => {
+          fakeAuth.signout(() => history.push('/'));
+        }}
+        >
+        SignOut
+      </button>
+    </p>
+  ) : (
+    <p>You are not logged in.</p>
   );
 }
 

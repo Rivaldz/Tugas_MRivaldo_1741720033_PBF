@@ -19,9 +19,11 @@ const Header = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
 
+      <Link to="/">
       <li class="nav-item">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      </Link>
 
       <li class="nav-item">
         <a class="nav-link" href="#">Software List</a>
@@ -51,9 +53,6 @@ const Header = () => {
   </div>
 </nav>
 </div>
-
-
-
     );
 }
 
