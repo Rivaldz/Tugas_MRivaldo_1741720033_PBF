@@ -1,0 +1,67 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  body {
+    background-color: #e8e8e8;
+  }
+  .kartu {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 100px;
+        box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.03);
+  transition: all .3s;
+  } 
+  .foto {
+    padding: 20px;
+  }
+  tbody {
+  font-size: 20px;
+  font-weight: 300;
+  }
+  .biodata {
+  margin-top: 30px;
+  }
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .footer{
+    background-color: #282c34;
+    color: #ffffff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

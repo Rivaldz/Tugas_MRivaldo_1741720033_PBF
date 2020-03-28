@@ -1,4 +1,4 @@
-import Header from './header';
+import Header from './Component/header';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
