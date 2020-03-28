@@ -1,6 +1,7 @@
 import Header from './Component/header';
 import Profil from './Component/Profil';
-import Login from './Component/Login'
+import Login from './Component/Login';
+import Register from './Component/Register';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -25,11 +26,14 @@ function App() {
       <br/>
       <AuthButton/>
       <Switch>
-        {/* <Route path="/profile" component={ Profil }>
+        <Route path="/profile" component={ Profil }>
           <Profil/>
-        </Route> */}
+        </Route>
         <Route path="/login" component={Login}>
           <Login/>
+        </Route>
+
+        <Route path="/register" component={Register}>
         </Route>
 
         <PrivateRoute path="/profile">

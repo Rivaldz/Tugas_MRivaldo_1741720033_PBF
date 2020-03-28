@@ -1,3 +1,5 @@
+
+import Register from './Register'
 import React from 'react';
 import {
   BrowserRouter as Router, 
@@ -19,7 +21,7 @@ const Login = () => {
             <div className="col-md-6 offset-md-3 col-xs-12">
               <h1 className="text-xs-center">Sign In</h1>
               <p className="text-xs-center">
-                <Link to="register">
+                <Link to="/register">
                   Need an account?
                 </Link>
               </p>
