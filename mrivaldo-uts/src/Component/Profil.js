@@ -1,3 +1,8 @@
+import './header.css';
+import React from 'react';
+
+const Profile = () => {
+    return(
 <div class="container">
   <div class="card kartu">
     <div class="row">
@@ -74,9 +79,9 @@
   
  </div>
 
-<footer class="footer">
-  <div class="container">
-   <p>Rivalzsetyo@gmail.com</p>
-  </div>
-</footer>
-    </div>
+    );
+}
+
+export default Profile;
+
+
