@@ -17,60 +17,29 @@ const Profile = () => {
             <tbody>
               <tr>
                 <th scope="row"></th>
-                <th>Nama</th>
+                <th>username</th>
                 <td>:</td>
                 <td>Muh Rivaldo Setyo Purnomo</td>
               </tr>
               <tr>
                 <th scope="row"></th>
-                <th>TTL</th>
+                <th>Email</th>
                 <td>:</td>
-                <td>Nganjuk, 12 Maret 1999</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <th>Jeni Kelamin</th>
-                <td>:</td>
-                <td>Laki-laki</td>
+                <td>email user</td>
               </tr>
               <tr>
                 <th scope="row"></th>
                 <th>Alamat</th>
                 <td>:</td>
-                <td>Jl Ikan Gurame Lowokwaru Malang</td>
+                <td>Alamat rumah</td>
               </tr>
               <tr>
                 <th scope="row"></th>
-                <th>No. Hp</th>
+                <th>No Hp</th>
                 <td>:</td>
-                <td>085233423984</td>
+                <td>0874977</td>
               </tr>
-              <tr>
-                <th scope="row"></th>
-                <th>Status</th>
-                <td>:</td>
-                <td>Mahasiswa</td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <th>Hobi</th>
-                <td>:</td>
-                <td>Mancing</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <th>Email</th>
-                <td>:</td>
-                <td>Rivalzsetyo@gmail.com</td>
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <th>Github</th>
-                <td>:</td>
-                <td>Rivaldz</td>
-              </tr>
-            </tbody>
+              </tbody>
           </table>
         </div>
       </div>

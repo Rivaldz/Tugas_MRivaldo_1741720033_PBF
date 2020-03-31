@@ -2,6 +2,8 @@ import Header from './Component/header';
 import Profil from './Component/Profil';
 import Login from './Component/Login';
 import Register from './Component/Register';
+import Home from './container/BlogPost';
+
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -26,9 +28,15 @@ function App() {
       <br/>
       <AuthButton/>
       <Switch>
+
+        <Route path="/" component={ Home }>
+          <Home/>
+        </Route>
+
         <Route path="/profile" component={ Profil }>
           <Profil/>
         </Route>
+
         <Route path="/login" component={Login}>
           <Login/>
         </Route>
