@@ -1,7 +1,10 @@
 import './header.css';
-import React from 'react';
+import React, { Component } from 'react';
 
-const Profile = () => {
+class Profile extends Component {
+
+
+  render(){
     return(
 <div class="container">
   <h2>Profile Member</h2>
@@ -50,7 +53,9 @@ const Profile = () => {
  </div>
 
     );
+  }
 }
+
 
 export default Profile;
 

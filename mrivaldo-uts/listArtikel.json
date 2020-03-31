@@ -23,6 +23,18 @@
       "id": 4,
       "title": "Jalin Kerjasama dengan Shenyang University of Technology, JTI Polinema Terbangkan Empat Mahasiswa ke Tiongkok",
       "body": "Empat mahasiswa Jurusan Teknologi Informasi (JTI) Politeknik Negeri Malang (Polinema) telah berangkat ke negeri tirai bambu pada hari selasa (8/10/2019) kemarin, dalam rangka kerjasama antar kampus Polinema dan Shenyang University of Technology. Para mahasiswa tersebut..."
+    },
+    {
+      "userId": 1,
+      "id": 1585658298776,
+      "title": "Harga Sembako Saat ini sedang murah ",
+      "body": "Dengan beredarnya sebuah vidio yang menjelaskan sebuah harga sembako yang begitu murah "
+    },
+    {
+      "userId": 1,
+      "id": 1585668225273,
+      "title": "Belajar Dasar PHP",
+      "body": "Belajar php sangat mudah namun kita harus selalu mau berusaha dan selalu berikhtiar untuk medapatkan jawaban "
     }
   ],
   "comments": [
@@ -33,6 +45,11 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "id": 1,
+    "username": "Verari",
+    "email": "verarri@gmail.com",
+    "alamat": "dsn ngalwak, ",
+    "nohp": 1,
+    "password": "rahasia"
   }
 }

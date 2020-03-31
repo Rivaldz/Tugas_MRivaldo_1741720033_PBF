@@ -1,8 +1,57 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-const Register = () => {
-    return (
+class Register extends Component{
+    state= {
+    showProfile: [],
+    insertArtikel:{
+      id: 1,
+      username: "",
+      email: "",
+      alamat: "",
+      nohp: 1,
+      password: ""
+    }
+  }
+
+  ambilDataDariServerAPI(){
+    fetch('http://localhost:3001/profile')
+      .then(response => response.json())
+      .then(jsonHasilAmbilDariAPI => {
+        this.setState({
+          showProfile: jsonHasilAmbilDariAPI
+        })
+
+      })
+  }
+
+  handleTambahArtikel = (event) => {
+    let formInsertArtikel = {...this.state.insertArtikel};
+    let timestamp = new Date().getTime();
+    formInsertArtikel['id'] = timestamp;
+    formInsertArtikel[event.target.name] = event.target.value;
+    this.setState({
+        insertArtikel: formInsertArtikel
+    });
+  }
+
+  handleTombolSimpan = () => {
+    fetch('http://localhost:3000/profile',{
+      method: 'post',
+      header:{
+        'Accept' : 'application/json',
+        'Content-Type' : 'aplication/json'
+      },
+      body: JSON.stringfy(this.state.insertArtikel)
+    })
+      .then((Response) => {
+        this.ambildataDariServerAPI();
+      });
+
+  }
+
+    render() {
+      return (
       <div className="auth-page">
         <div className="container page">
           <div className="row">
@@ -22,9 +71,12 @@ const Register = () => {
 
                   <fieldset className="form-group">
                     <input
+                      id="username"
                       className="form-control form-control-lg"
                       type="text"
                       placeholder="Username"
+
+                      onChange={this.handleTambahArtikel}
                     //   value={this.props.username}
                     //   onChange={this.changeUsername} 
                       />
@@ -32,9 +84,12 @@ const Register = () => {
 
                   <fieldset className="form-group">
                     <input
+                      id="email"
                       className="form-control form-control-lg"
                       type="email"
                       placeholder="Email"
+
+                      onChange={this.handleTambahArtikel}
                     //   value={this.props.email}
                     //   onChange={this.changeEmail} 
                       />
@@ -42,9 +97,12 @@ const Register = () => {
 
                   <fieldset className="form-group">
                     <input
+                      id="alamat"
                       className="form-control form-control-lg"
                       type="text"
                       placeholder="Alamat"
+
+                      onChange={this.handleTambahArtikel}
                     //   value={this.props.password}
                     //   onChange={this.changePassword} 
                       />
@@ -52,9 +110,12 @@ const Register = () => {
 
                   <fieldset className="form-group">
                     <input
+                      id="nohp"
                       className="form-control form-control-lg"
                       type="number"
                       placeholder="No Hp"
+
+                      onChange={this.handleTambahArtikel}
                     //   value={this.props.password}
                     //   onChange={this.changePassword} 
                       />
@@ -62,9 +123,11 @@ const Register = () => {
                   </fieldset>
                   <fieldset className="form-group">
                     <input
+                      id="password"
                       className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
+                      onChange={this.handleTambahArtikel}
                     //   value={this.props.password}
                     //   onChange={this.changePassword} 
                       />
@@ -73,6 +136,7 @@ const Register = () => {
                   <button
                     className="btn btn-lg btn-primary pull-xs-right"
                     type="submit"
+                    onClick={this.handleTombolSimpan}
                     // disabled={this.props.inProgress}
                     >
                     Sign in
@@ -86,6 +150,7 @@ const Register = () => {
         </div>
       </div>
     )
+  }
 }
 
 export default Register;
