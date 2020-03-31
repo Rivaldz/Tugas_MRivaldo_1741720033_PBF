@@ -4,6 +4,7 @@ import React from 'react';
 const Profile = () => {
     return(
 <div class="container">
+  <h2>Profile Member</h2>
   <div class="card kartu">
     <div class="row">
       <div class="col-md4">
@@ -17,7 +18,7 @@ const Profile = () => {
             <tbody>
               <tr>
                 <th scope="row"></th>
-                <th>username</th>
+                <th>Username</th>
                 <td>:</td>
                 <td>Muh Rivaldo Setyo Purnomo</td>
               </tr>

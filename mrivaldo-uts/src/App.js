@@ -7,6 +7,7 @@ import Home from './container/BlogPost';
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter as Router, 
@@ -29,7 +30,7 @@ function App() {
       <AuthButton/>
       <Switch>
 
-        <Route path="/" component={ Home }>
+        <Route path="/home" component={ Home }>
           <Home/>
         </Route>
 
