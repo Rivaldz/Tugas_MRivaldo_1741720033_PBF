@@ -35,6 +35,18 @@
       "id": 1585668225273,
       "title": "Belajar Dasar PHP",
       "body": "Belajar php sangat mudah namun kita harus selalu mau berusaha dan selalu berikhtiar untuk medapatkan jawaban "
+    },
+    {
+      "userId": 1,
+      "id": 1585669509922,
+      "title": "Belajar Java Programming",
+      "body": "Belajar pemrograman java"
+    },
+    {
+      "userId": 1,
+      "id": 1585669757491,
+      "title": "Ini Saya ingin menambah sebuah berita ",
+      "body": "yang dimana berita ini tak akan bisa tersebar menajdi mensa; "
     }
   ],
   "comments": [
@@ -46,10 +58,10 @@
   ],
   "profile": {
     "id": 1,
-    "username": "Verari",
-    "email": "verarri@gmail.com",
-    "alamat": "dsn ngalwak, ",
+    "username": "",
+    "email": "",
+    "alamat": "",
     "nohp": 1,
-    "password": "rahasia"
+    "password": ""
   }
 }

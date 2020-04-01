@@ -14,7 +14,7 @@ import {
 const Login = () => {
     return(
     <div className="auth-page">
-        <AuthButton/>
+        {/* <AuthButton/> */}
         <div className="container page">
           <div className="row">
 
@@ -117,7 +117,7 @@ function LoginPage(){
 
   return (
     <div>
-      <p> you must log in to view the page at {from.pathname}</p>
+      {/* <p> you must log in to view the page at {from.pathname}</p> */}
       {/* <button onClick={login}>Log In</button> */}
         <button 
             className="btn btn-lg btn-primary pull-xs-right"

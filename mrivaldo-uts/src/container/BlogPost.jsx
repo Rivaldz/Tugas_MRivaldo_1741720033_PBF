@@ -3,6 +3,7 @@ import './BlogPost.css';
 import Post from './Post';
 
 class BlogPost extends Component{
+
     state ={
         listartikel: [],
         insertArtikel:{
