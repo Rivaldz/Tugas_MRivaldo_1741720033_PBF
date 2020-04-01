@@ -18,14 +18,8 @@ const ProfileBind = (props) =>{
               <tr>
                 <th scope="row"></th>
                 <th>Username</th>
-                <td>:</td>
-                {
-                 this.sate.listartikel(artikel => {
-                   return<td>{artikel.username}</td> 
-
-                 })
-
-                }
+                <td>{props.username}</td>
+                <td>isi</td>
               </tr>
               <tr>
                 <th scope="row"></th>

@@ -97,8 +97,8 @@ class Profile extends Component {
     return(
 <div class="container">
   <h2>Profile Member</h2>
-  
-  {/* <div class="card kartu">
+  {/* <ProfileBind/>  */}
+  <div class="card kartu">
     <div class="row">
       <div class="col-md4">
         <div class="foto">
@@ -115,38 +115,32 @@ class Profile extends Component {
                 <th scope="row"></th>
                 <th>Username</th>
                 <td>:</td>
-                {
-                 this.sate.listartikel(artikel => {
-                   return<td>{artikel.username}</td> 
-
-                 })
-
-                }
+                <td>{this.state.listartikel.username}</td>
               </tr>
               <tr>
                 <th scope="row"></th>
                 <th>Email</th>
                 <td>:</td>
-                <td>email user</td>
+                <td>{this.state.listartikel.email}</td>
               </tr>
               <tr>
                 <th scope="row"></th>
                 <th>Alamat</th>
                 <td>:</td>
-                <td>Alamat rumah</td>
+                <td>{this.state.listartikel.alamat}</td>
               </tr>
               <tr>
                 <th scope="row"></th>
                 <th>No Hp</th>
                 <td>:</td>
-                <td>0874977</td>
+                <td>{this.state.listartikel.nohp}</td>
               </tr>
               </tbody>
           </table>
         </div>
       </div>
     </div>
-   </div> */}
+   </div>
   
  </div>
 

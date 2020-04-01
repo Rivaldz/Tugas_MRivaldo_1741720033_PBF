@@ -25,9 +25,11 @@ const Header = () => {
       </li>
       </Link>
 
+      <Link to="/news"> 
       <li class="nav-item">
-        <a class="nav-link" href="#">Software List</a>
+        <a class="nav-link" href="#">News</a>
       </li>
+      </Link>
 
       <Link to="/profile">
       <li class="nav-item dropdown">
