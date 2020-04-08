@@ -1,4 +1,4 @@
-import {domainPath} from "./config";
+import {domainPath} from "./Config";
 
 const PostAPI = (path, data) => {
     const promise = new Promise((resolve, reject) => {

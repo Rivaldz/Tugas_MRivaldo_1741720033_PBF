@@ -1,12 +1,13 @@
-import {domainPath} from '.Config';
+import {domainPath} from "./Config";
 
-const GetApi = (path) => {
+// const domainPath = 'http://localhost:3001';
+const GetApi = (path) =>{
     const promise = new Promise((resolve, reject) => {
         fetch(`${domainPath}/${path}`)
             .then(response => response.json())
             .then((result) => {
                 resolve(result);
-            }, (err) ={
+            }, (err) => {
                 reject(err);
             })
     })

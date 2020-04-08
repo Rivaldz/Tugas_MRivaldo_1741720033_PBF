@@ -52,7 +52,7 @@ const deleteNewsBlog = (dataYgDiHapus) => DeleteAPI('post', dataYgDiHapus);
 const API = {
     getNewsBlog,
     postNewsBlog,
-    dataYgDiHapus
+    deleteNewsBlog 
 }
 
 export default API;
