@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "NIM": "1741720033",
+      "id": 1583413495615,
+      "nama": "Rivaldo",
+      "alamat": "Dsn Bogo Ds Nglawak Kec Kertosono",
+      "hp": "085288707403",
+      "angkatan": "2019",
+      "status": "mahasiswa"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
