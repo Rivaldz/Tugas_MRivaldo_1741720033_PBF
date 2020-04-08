@@ -3,6 +3,7 @@ import Profil from './Component/Profil';
 import Login from './Component/Login';
 import Register from './Component/Register';
 import Home from './container/BlogPost';
+import News from './Component/News';
 
 import React from 'react';
 import logo from './logo.svg';
@@ -32,6 +33,9 @@ function App() {
 
         <Route path="/home" component={ Home }>
           <Home/>
+        </Route>
+
+        <Route path="/news" component={News}>
         </Route>
 
         <Route path="/profile" component={ Profil }>
