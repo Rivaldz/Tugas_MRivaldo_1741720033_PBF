@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './BlogPost.css';
 import Post from "../../component/BlogPost/Post";
+import API from "../../Services/index";
 
 class BlogPost extends Component{
     state ={
@@ -15,14 +16,12 @@ class BlogPost extends Component{
     }
 
     ambilDataDariServerAPI(){
-        fetch('http://localhost:3001/posts')
-            .then(response => response.json())
-            .then(jsonHasilAmbilDariAPI => {
-                this.setState({
-                    listartikel: jsonHasilAmbilDariAPI
-                })
-
+        API.getNewsBlog().then(result => {
+            this.setState({
+                listartikel: result
             })
+        })
+
     }
 
     componentDidMount(){
