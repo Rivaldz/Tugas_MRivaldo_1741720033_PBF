@@ -1,0 +1,25 @@
+[debug] [2020-04-23T02:04:44.347Z] ----------------------------------------------------------------------
+[debug] [2020-04-23T02:04:44.349Z] Command:       /usr/local/Cellar/node/13.8.0/bin/node /usr/local/bin/firebase serve
+[debug] [2020-04-23T02:04:44.350Z] CLI Version:   8.1.1
+[debug] [2020-04-23T02:04:44.350Z] Platform:      darwin
+[debug] [2020-04-23T02:04:44.350Z] Node Version:  v13.8.0
+[debug] [2020-04-23T02:04:44.351Z] Time:          Thu Apr 23 2020 09:04:44 GMT+0700 (Western Indonesia Time)
+[debug] [2020-04-23T02:04:44.351Z] ----------------------------------------------------------------------
+[debug] [2020-04-23T02:04:44.351Z] 
+[debug] [2020-04-23T02:04:44.360Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-23T02:04:44.361Z] > authorizing via signed-in user
+[debug] [2020-04-23T02:04:44.361Z] [iam] checking project fir-c3638 for permissions ["firebase.projects.get"]
+[debug] [2020-04-23T02:04:44.363Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/fir-c3638:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-04-23T02:04:45.660Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 23 Apr 2020 02:04:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1178","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-23T02:04:45.662Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-c3638  
+ 
+[debug] [2020-04-23T02:04:45.956Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 23 Apr 2020 02:04:45 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/rivaldosetyo/kuliah/PBF/Tugas_MRivaldo/Tugas_MRivaldo_1741720033_PBF/mrivaldo-minggu12'...
+[info] 
+[debug] [2020-04-23T02:04:45.960Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/fir-c3638/webApps/-/config  
+ 
+[debug] [2020-04-23T02:04:46.857Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 23 Apr 2020 02:04:46 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: n
+[info] ✔  hosting: Local server: http://localhost:5000
