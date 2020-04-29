@@ -100,6 +100,7 @@ class BlogPost extends Component{
                             <textarea className="form-control" id="body" name="body" rows="3" ref = "isiArtikel" ></textarea>
                         </div>
                     </div>
+                    <input type="hidden" name = "uid" ref="uid" />
                     <button type="submit" className="btn btn-primary" onClick={this.handleTombolSimpan}>Simpan</button>
                 </div>
                 <h2>Daftar Artikel</h2>
