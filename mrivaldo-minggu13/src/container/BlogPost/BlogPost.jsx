@@ -15,7 +15,6 @@ class BlogPost extends Component{
         }
     }
 
-
     ambilDataDariServerAPI = () => {
         let ref = firebase.database().ref("/");
         ref.on("value", snapshot => {
