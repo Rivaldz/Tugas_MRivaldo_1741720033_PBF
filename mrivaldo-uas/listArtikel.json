@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "Workshop Amazon Web Services (AWS) Untuk Para Dosen Jurusan Teknologi Informasi Politeknik Negeri Malang",
+      "body": "Jumat (24/1/2020), Jurusan Teknologi Informasi Politeknik Negeri Malang (JTI Polinema) menyelenggarakan workshop tentang Amazon Web Services (AWS) yang bertempat di Lantai 7, Ruang LKJ 2, Gedung Teknik Sipil Polinema. Workshop ini diadakan untuk menunjang performa dan..."
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "Pelaksanaan Rapat Hasil Akhir Yudisium Semester Ganjil 2019/2020",
+      "body": "Jumat (17/1/20) kemarin, Jurusan Teknologi Informasi Politeknik Negeri Malang (JTI Polinema) menyelenggarakan rapat hasil yudisium semester ganjil tahun ajaran 2019/2020. Acara ini dimulai pada jam 8.30 dan bertempat di lantai 8, Gedung Teknik Sipil, Politeknik Negeri..."
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "Kemeriahan Penutupan Digital Talent Scholarship VSGA 2019 Batch 2 di Politeknik Negeri Malang",
+      "body": "Selesai sudah Digital Talent Scholarship (DTS) Batch 2 2019 dengan program Vocational School Graduate Academy&nbsp;(VSGA) di Jurusan Teknologi Informasi (JTI) Politenik Negeri Malang (Polinema). Pelatihan yang didanai Kominfo dan bekerjasama dengan Jurusan..."
+    },
+    {
+      "userId": 1,
+      "id": 4,
+      "title": "Jalin Kerjasama dengan Shenyang University of Technology, JTI Polinema Terbangkan Empat Mahasiswa ke Tiongkok",
+      "body": "Empat mahasiswa Jurusan Teknologi Informasi (JTI) Politeknik Negeri Malang (Polinema) telah berangkat ke negeri tirai bambu pada hari selasa (8/10/2019) kemarin, dalam rangka kerjasama antar kampus Polinema dan Shenyang University of Technology. Para mahasiswa tersebut..."
+    },
+    {
+      "userId": 1,
+      "id": 1585658298776,
+      "title": "Harga Sembako Saat ini sedang murah ",
+      "body": "Dengan beredarnya sebuah vidio yang menjelaskan sebuah harga sembako yang begitu murah "
+    },
+    {
+      "userId": 1,
+      "id": 1585668225273,
+      "title": "Belajar Dasar PHP",
+      "body": "Belajar php sangat mudah namun kita harus selalu mau berusaha dan selalu berikhtiar untuk medapatkan jawaban "
+    },
+    {
+      "userId": 1,
+      "id": 1585669509922,
+      "title": "Belajar Java Programming",
+      "body": "Belajar pemrograman java"
+    },
+    {
+      "userId": 1,
+      "id": 1585669757491,
+      "title": "Ini Saya ingin menambah sebuah berita ",
+      "body": "yang dimana berita ini tak akan bisa tersebar menajdi mensa; "
+    },
+    {
+      "userId": 1,
+      "id": 1585707789176,
+      "title": "Masukan judul ",
+      "body": "ini adalah isi "
+    },
+    {
+      "userId": 1,
+      "id": 1585710131746,
+      "title": "judul input data ",
+      "body": "isi input data"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "id": 1585711118283,
+    "username": "Username Admin",
+    "email": "email@admin.com",
+    "alamat": "jl admin a ayani no 23",
+    "nohp": "09839381",
+    "password": "password"
+  }
+}
