@@ -8,8 +8,9 @@ import firebaseConfig from "../../firebase/config";
 class BlogPost extends Component{ 
     constructor(props){
         super(props);
-        firebase.initializeApp(firebaseConfig);
-
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+}
         this.state = {
             listArtikel: []
         }

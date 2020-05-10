@@ -1,99 +1,158 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Login from './Login';
+import firebase from "firebase";
+import firebaseConfig from "../firebase/config";
 
 // import Post from './Post';
 
 class Register extends Component{
-    state ={
-        listartikel: [],
-        insertArtikel:{
-            id: 1,
-            username: "",
-            email: "",
-            alamat:"",
-            nohp: 1,
-            password: ""
+     constructor(props){
+        super(props);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        // firebase.initializeApp(firebaseConfig);
 
+        this.state = {
+            listArtikel: []
         }
     }
 
-    ambilDataDariServerAPI(){
-        fetch('http://localhost:3001/profile')
-            .then(response => response.json())
-            .then(jsonHasilAmbilDariAPI => {
-                this.setState({
-                    listartikel: jsonHasilAmbilDariAPI
-                })
-
-            })
+    simpanDataKeServerAPI = () => {
+        firebase.database()
+            .ref('/')
+            .set(this.state);
     }
 
-    componentDidMount(){
-        this.ambilDataDariServerAPI()
-    }
+    // componentDidMount() {       // komponen untuk mengecek ketika compnent telah di-mount-ing, maka panggil API
+    //     this.ambilDataDariServerAPI()
+    // }
 
-    handleHapusArtikel = (data) => {
-        fetch(`http://localhost:3001/posts/${data}`, {method: 'DELETE'})
-            .then( res => {
-                this.ambilDataDariServerAPI()
-            })
-
-        // console.log.this.ambilDataDariServerAPI()
-    }
-
-    deleteProduct(productId) {
-    const { products } = this.state;
-
-    const apiUrl = 'http://localhost/dev/tcxapp/reactapi/deleteProduct';
-    const formData = new FormData();
-    formData.append('productId', productId);
-
-    const options = {
-      method: 'POST',
-      body: formData
-    }
-
-    fetch(apiUrl, options)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            response: result,
-            products: products.filter(product => product.id !== productId)
-          });
-        },
-        (error) => {
-          this.setState({ error });
+     componentDidUpdate(prevProps, prevState){
+        if (prevState !== this.state){
+            this.simpanDataKeServerAPI();
         }
-      )
     }
 
-    handleTambahArtikel = (event) => {
-        let formInsertArtikel = {...this.state.insertArtikel};
-        let timestamp = new Date().getTime();
+
+    handleTambahArtikel = (event) => {      // fungsi untuk meng-hadle form tambah data artikel
+        let formInsertArtikel = {...this.state.insertArtikel};      // clonning data state insertArtikel ke dalam variabel formInsertArtikel
+        let timestamp = new Date().getTime();                       // digunakan untuk menyimpan waktu (sebagai ID artikel)
         formInsertArtikel['id'] = timestamp;
-        formInsertArtikel[event.target.name] = event.target.value;
+        formInsertArtikel[event.target.name] = event.target.value;  // menyimpan data onchange ke formInsertArtikel sesuai dengan target yg diisi
         this.setState({
             insertArtikel: formInsertArtikel
         });
     }
 
-    handleTombolSimpan = () => {
-        fetch('http://localhost:3001/profile',{
-            method: 'post',
-            headers:{
-                'Accept' : 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.insertArtikel)
-        })
-            .then((Response) => {
-                this.ambilDataDariServerAPI();
-            });
-          alert("Your file is being uploaded!")
+    handleTombolSimpan = (event) => {   
+       let username = this.refs.username.value; 
+       let email = this.refs.email.value; 
+       let alamat= this.refs.alamat.value; 
+       let no = this.refs.no.value;
+       let pass = this.refs.pass.value;
+       let uid = this.refs.uis.value;
 
+       if (uid && username && email && alamat && no && pass) {
+           const { listArtikel } = this.state;
+           const indeksArtikel = listArtikel.findIndex(data => {
+               return data.uid === uid;
+           });
+           listArtikel[indeksArtikel].title = title;
+           listArtikel[indeksArtikel].body = body;
+           this.setState({ listArtikel });
+       } 
+       else if ( title && body){
+           const uid = new Date().getTime().toString();
+           const { listArtikel } = this.state;
+           listArtikel.push({uid, title, body});
+           this.setState({listArtikel});
+       }
+
+       this.refs.judulArtikel.value = "";
+       this.refs.isiArtikel.value = "";
+       this.refs.uid.value = "";
     }
+
+
+
+    // ambilDataDariServerAPI(){
+    //     fetch('http://localhost:3001/profile')
+    //         .then(response => response.json())
+    //         .then(jsonHasilAmbilDariAPI => {
+    //             this.setState({
+    //                 listartikel: jsonHasilAmbilDariAPI
+    //             })
+
+    //         })
+    // }
+
+    // componentDidMount(){
+    //     this.ambilDataDariServerAPI()
+    // }
+
+    // handleHapusArtikel = (data) => {
+    //     fetch(`http://localhost:3001/posts/${data}`, {method: 'DELETE'})
+    //         .then( res => {
+    //             this.ambilDataDariServerAPI()
+    //         })
+
+    //     // console.log.this.ambilDataDariServerAPI()
+    // }
+
+    // deleteProduct(productId) {
+    // const { products } = this.state;
+
+    // const apiUrl = 'http://localhost/dev/tcxapp/reactapi/deleteProduct';
+    // const formData = new FormData();
+    // formData.append('productId', productId);
+
+    // const options = {
+    //   method: 'POST',
+    //   body: formData
+    // }
+
+    // fetch(apiUrl, options)
+    //   .then(res => res.json())
+    //   .then(
+    //     (result) => {
+    //       this.setState({
+    //         response: result,
+    //         products: products.filter(product => product.id !== productId)
+    //       });
+    //     },
+    //     (error) => {
+    //       this.setState({ error });
+    //     }
+    //   )
+    // }
+
+    // handleTambahArtikel = (event) => {
+    //     let formInsertArtikel = {...this.state.insertArtikel};
+    //     let timestamp = new Date().getTime();
+    //     formInsertArtikel['id'] = timestamp;
+    //     formInsertArtikel[event.target.name] = event.target.value;
+    //     this.setState({
+    //         insertArtikel: formInsertArtikel
+    //     });
+    // }
+
+    // handleTombolSimpan = () => {
+    //     fetch('http://localhost:3001/profile',{
+    //         method: 'post',
+    //         headers:{
+    //             'Accept' : 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(this.state.insertArtikel)
+    //     })
+    //         .then((Response) => {
+    //             this.ambilDataDariServerAPI();
+    //         });
+    //       alert("Your file is being uploaded!")
+
+    // }
 
     render(){
         return(
