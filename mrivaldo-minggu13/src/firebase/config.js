@@ -1,12 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyB71ht3TRmD3pgZsHVIeakoW9asU7S1XeQ",
-  authDomain: "fir-c3638.firebaseapp.com",
-  databaseURL: "https://fir-c3638.firebaseio.com",
-  projectId: "fir-c3638",
-  storageBucket: "fir-c3638.appspot.com",
-  messagingSenderId: "10373462604",
-  appId: "1:10373462604:web:dda3eb3f4d27af8a01d2e9",
-  measurementId: "G-B8TQ3TL5B7"
+  apiKey: "AIzaSyCJRlPkB3oAp3dP0MatVnZzSCowm_eYGdc",
+  authDomain: "ninth-potion-258716.firebaseapp.com",
+  databaseURL: "https://ninth-potion-258716.firebaseio.com",
+  projectId: "ninth-potion-258716",
+  storageBucket: "ninth-potion-258716.appspot.com",
+  messagingSenderId: "768741072585",
+  appId: "1:768741072585:web:839e6586024ab4553ef718"
 };
 
 export default firebaseConfig;
