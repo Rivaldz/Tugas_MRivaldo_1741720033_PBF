@@ -15,7 +15,7 @@ class Register extends Component{
         // firebase.initializeApp(firebaseConfig);
 
         this.state = {
-            listArtikel: []
+            listProfil: []
         }
     }
 
@@ -55,23 +55,29 @@ class Register extends Component{
        let uid = this.refs.uis.value;
 
        if (uid && username && email && alamat && no && pass) {
-           const { listArtikel } = this.state;
-           const indeksArtikel = listArtikel.findIndex(data => {
+           const { listProfil } = this.state;
+           const indeksProfil = listProfil.findIndex(data => {
                return data.uid === uid;
            });
-           listArtikel[indeksArtikel].title = title;
-           listArtikel[indeksArtikel].body = body;
-           this.setState({ listArtikel });
+           listProfil[indeksProfil].username = username;
+           listProfil[indeksProfil].email = email;
+           listProfil[indeksProfil].alamat = alamat;
+           listProfil[indeksProfil].no = no;
+           listProfil[indeksProfil].pass= no;
+           this.setState({ listProfil });
        } 
-       else if ( title && body){
+       else if ( username && email && alamat && no && pass){
            const uid = new Date().getTime().toString();
-           const { listArtikel } = this.state;
-           listArtikel.push({uid, title, body});
-           this.setState({listArtikel});
+           const { listProfil } = this.state;
+           listProfil.push({uid, username, email, alamat, no, pass});
+           this.setState({listProfil});
        }
 
-       this.refs.judulArtikel.value = "";
-       this.refs.isiArtikel.value = "";
+       this.refs.username.value = "";
+       this.refs.email.value = "";
+       this.refs.alamat.value = "";
+       this.refs.no.value = "";
+       this.refs.pass.value = "";
        this.refs.uid.value = "";
     }
 
@@ -163,35 +169,36 @@ class Register extends Component{
                 <div className="form-group row ">
                     <label htmlFor="username" className="col-sm-2 col-form-label ">Usename</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control form-control-lg " id="username" name="username" onChange={this.handleTambahArtikel} />
+                        <input type="text" className="form-control form-control-lg " id="username" name="username" ref = "username" />
                     </div>
                 </div>
 
                 <div className="form-group row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-8">
-                        <input type="email" className="form-control  form-control-lg" id="email" name="email" onChange={this.handleTambahArtikel} />
+                        <input type="email" className="form-control  form-control-lg" id="email" name="email" ref = "email" />
                     </div>
                 </div>                
 
                 <div className="form-group row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Alamat</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control form-control-lg " id="alamat" name="alamat" onChange={this.handleTambahArtikel} />
+                        <input type="text" className="form-control form-control-lg " id="alamat" name="alamat" ref = "alamat" />
                     </div>
                 </div>                
 
                 <div className="form-group row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">No Hp</label>
                     <div className="col-sm-8">
-                        <input type="number" className="form-control  form-control-lg" id="nohp" name="nohp" onChange={this.handleTambahArtikel} />
+                        <input type="number" className="form-control  form-control-lg" id="nohp" name="nohp" ref = "no" />
                     </div>
                 </div>
 
                 <div className="form-group row">
                     <label htmlFor="body" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-8">
-                        <input type="password" className="form-control form-control-lg" name="password" id="password" rows="3" onChange={this.handleTambahArtikel}/>
+                        <input type="password" className="form-control form-control-lg" name="password" id="password" rows="3" ref="pass"/>
+                        <input type= " hidden " name = "uid" ref = "uid"/>
                     </div>
                 </div>
                 
