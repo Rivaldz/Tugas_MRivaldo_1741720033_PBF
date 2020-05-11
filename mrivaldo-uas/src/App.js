@@ -20,6 +20,8 @@ import {
 
   } from "react-router-dom";
 
+export const AuthContext = React.createContext(null);
+
 function App() {
   return (
     <Router>

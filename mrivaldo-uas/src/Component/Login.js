@@ -1,6 +1,10 @@
 
 import Register from './Register'
-import React from 'react';
+import React, {useState, useContext} from 'react';
+// import firebase from "firebase";
+import firebaseConfig from "../firebase/config";
+import * as firebase from "firebase";
+import {AuthContext} from "../App";
 import {
   BrowserRouter as Router, 
   Switch,
@@ -11,8 +15,32 @@ import {
   useLocation
   } from "react-router-dom";
 
+
 const Login = () => {
-    return(
+  if(!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setErrors] = useState("");
+
+  const Auth = useContext(AuthContext);
+  const handleForm = e => {
+    e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(res => {
+        if (res.user) console.log("login sukses");
+      })
+      .catch(e => {
+        setErrors(e.message);
+      });
+    // console.log(Auth);
+    // Auth.setLoggedIn(true);
+  };
+
+   return(
     <div className="auth-page">
         {/* <AuthButton/> */}
         <div className="container page">
@@ -26,127 +54,42 @@ const Login = () => {
                 </Link>
               </p>
 
-              {/* <ListErrors errors={this.props.errors} /> */}
-
-              <form >
+              <form onSubmit={e => handleForm(e)}>
                 <fieldset>
 
                   <fieldset className="form-group">
                     <input
+                      onChange={e => setEmail(e.target.value)}
+                      value={email}
                       className="form-control form-control-lg"
                       type="email"
+                      name = "email"
                       placeholder="Email"
-                    //   value={email}
-                    //   onChange={this.changeEmail} 
                     />
                   </fieldset>
 
                   <fieldset className="form-group">
                     <input
+                      onChange={e => setPassword(e.target.value)}
+                      value = {password}
                       className="form-control form-control-lg"
                       type="password"
                       placeholder="Password"
-                    //   value={password}
-                    //   onChange={this.changePassword} 
+                      name = "password"
                     />
                   </fieldset>
-
-                  <LoginPage/>
-
-                  {/* <button
-                    className="btn btn-lg btn-primary pull-xs-right"
-                    type="submit"
-                    // disabled={this.props.inProgress}
-                    >
-                    Sign in
-                  </button> */}
-
                 </fieldset>
+                <button type="submit">
+                  Login
+                </button>
+                <span>{error}</span>
               </form>
             </div>
-
           </div>
         </div>
       </div>
     );
 
-}
-
-const fakeAuth = {
-  isAuthenticated : false,
-  authenticate(cb){
-    fakeAuth.isAuthenticated = true;
-    setTimeout(cb,100);
-  },
-  signout(cb){
-    fakeAuth.isAuthenticated = false;
-    setTimeout(cb, 100);
   }
-};
-
-function PrivateRoute({children, ...rest}){
-  return(
-    <Route
-      {...rest}
-      render = {({ location }) => 
-        fakeAuth.isAuthenticated ? (
-          children
-        ) : (
-          <Redirect 
-            to={{
-              pathname: "/login",
-              state: {from: location}
-            }}
-            />
-        )
-       }
-    />
-  );
-}
-
-function LoginPage(){
-  let history = useHistory();
-  let location = useLocation();
-
-  let { from } = location.state || { from: {pathname: "/"} };
-  let login = () => {
-    fakeAuth.authenticate(() => {
-      history.replace(from);
-    });
-  }
-
-  return (
-    <div>
-      {/* <p> you must log in to view the page at {from.pathname}</p> */}
-      {/* <button onClick={login}>Log In</button> */}
-        <button 
-            className="btn btn-lg btn-primary pull-xs-right"
-            type="submit"
-            onClick={login}
-        >
-                    Sign in
-        </button>
-    </div>
-  );
-}
-
-function AuthButton(){
-  let history = useHistory();
-
-  return fakeAuth.isAuthenticated ? (
-    <p>
-      Welcome!{" "}
-      <button 
-        onClick={() => {
-          fakeAuth.signout(() => history.push('/'));
-        }}
-        >
-        SignOut
-      </button>
-    </p>
-  ) : (
-    <p>You are not logged in.</p>
-  );
-}
 
 export default Login;
