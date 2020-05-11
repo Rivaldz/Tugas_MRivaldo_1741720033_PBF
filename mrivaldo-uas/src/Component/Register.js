@@ -18,16 +18,23 @@ class Register extends Component{
             listProfil: []
         }
     }
+    ambilDataDariServerAPI = () => {
+        let ref = firebase.database().ref("/");
+        ref.on("value", snapshot => {
+            const state = snapshot.val();
+            this.setState(state);
+        });
+    }
+
+      componentDidMount() {       // komponen untuk mengecek ketika compnent telah di-mount-ing, maka panggil API
+        this.ambilDataDariServerAPI()
+      }
 
     simpanDataKeServerAPI = () => {
         firebase.database()
             .ref('/')
             .set(this.state);
     }
-
-    // componentDidMount() {       // komponen untuk mengecek ketika compnent telah di-mount-ing, maka panggil API
-    //     this.ambilDataDariServerAPI()
-    // }
 
      componentDidUpdate(prevProps, prevState){
         if (prevState !== this.state){
@@ -37,12 +44,12 @@ class Register extends Component{
 
 
     handleTambahArtikel = (event) => {      // fungsi untuk meng-hadle form tambah data artikel
-        let formInsertArtikel = {...this.state.insertArtikel};      // clonning data state insertArtikel ke dalam variabel formInsertArtikel
+        let formInsertProfil = {...this.state.insertProfil};      // clonning data state insertArtikel ke dalam variabel formInsertArtikel
         let timestamp = new Date().getTime();                       // digunakan untuk menyimpan waktu (sebagai ID artikel)
-        formInsertArtikel['id'] = timestamp;
-        formInsertArtikel[event.target.name] = event.target.value;  // menyimpan data onchange ke formInsertArtikel sesuai dengan target yg diisi
+        formInsertProfil['id'] = timestamp;
+        formInsertProfil[event.target.name] = event.target.value;  // menyimpan data onchange ke formInsertArtikel sesuai dengan target yg diisi
         this.setState({
-            insertArtikel: formInsertArtikel
+            insertProfil: formInsertProfil 
         });
     }
 
@@ -52,7 +59,7 @@ class Register extends Component{
        let alamat= this.refs.alamat.value; 
        let no = this.refs.no.value;
        let pass = this.refs.pass.value;
-       let uid = this.refs.uis.value;
+       let uid = this.refs.uid.value;
 
        if (uid && username && email && alamat && no && pass) {
            const { listProfil } = this.state;
@@ -73,6 +80,8 @@ class Register extends Component{
            this.setState({listProfil});
        }
 
+       window.alert("Pendaftaran berhasil");
+
        this.refs.username.value = "";
        this.refs.email.value = "";
        this.refs.alamat.value = "";
@@ -81,84 +90,6 @@ class Register extends Component{
        this.refs.uid.value = "";
     }
 
-
-
-    // ambilDataDariServerAPI(){
-    //     fetch('http://localhost:3001/profile')
-    //         .then(response => response.json())
-    //         .then(jsonHasilAmbilDariAPI => {
-    //             this.setState({
-    //                 listartikel: jsonHasilAmbilDariAPI
-    //             })
-
-    //         })
-    // }
-
-    // componentDidMount(){
-    //     this.ambilDataDariServerAPI()
-    // }
-
-    // handleHapusArtikel = (data) => {
-    //     fetch(`http://localhost:3001/posts/${data}`, {method: 'DELETE'})
-    //         .then( res => {
-    //             this.ambilDataDariServerAPI()
-    //         })
-
-    //     // console.log.this.ambilDataDariServerAPI()
-    // }
-
-    // deleteProduct(productId) {
-    // const { products } = this.state;
-
-    // const apiUrl = 'http://localhost/dev/tcxapp/reactapi/deleteProduct';
-    // const formData = new FormData();
-    // formData.append('productId', productId);
-
-    // const options = {
-    //   method: 'POST',
-    //   body: formData
-    // }
-
-    // fetch(apiUrl, options)
-    //   .then(res => res.json())
-    //   .then(
-    //     (result) => {
-    //       this.setState({
-    //         response: result,
-    //         products: products.filter(product => product.id !== productId)
-    //       });
-    //     },
-    //     (error) => {
-    //       this.setState({ error });
-    //     }
-    //   )
-    // }
-
-    // handleTambahArtikel = (event) => {
-    //     let formInsertArtikel = {...this.state.insertArtikel};
-    //     let timestamp = new Date().getTime();
-    //     formInsertArtikel['id'] = timestamp;
-    //     formInsertArtikel[event.target.name] = event.target.value;
-    //     this.setState({
-    //         insertArtikel: formInsertArtikel
-    //     });
-    // }
-
-    // handleTombolSimpan = () => {
-    //     fetch('http://localhost:3001/profile',{
-    //         method: 'post',
-    //         headers:{
-    //             'Accept' : 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(this.state.insertArtikel)
-    //     })
-    //         .then((Response) => {
-    //             this.ambilDataDariServerAPI();
-    //         });
-    //       alert("Your file is being uploaded!")
-
-    // }
 
     render(){
         return(
@@ -198,14 +129,14 @@ class Register extends Component{
                     <label htmlFor="body" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-8">
                         <input type="password" className="form-control form-control-lg" name="password" id="password" rows="3" ref="pass"/>
-                        <input type= " hidden " name = "uid" ref = "uid"/>
+                        <input type= "hidden" name = "uid" ref = "uid"/>
                     </div>
                 </div>
                 
-                <Link to="/login">
+                {/* <Link to="/login"> */}
                 <button type="submit" className="btn btn-lg btn-primary pull-xs-right" onClick={this.handleTombolSimpan}>Daftar
                 </button>
-                </Link>
+                {/* </Link> */}
 
               </div>
             </div>
