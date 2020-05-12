@@ -1,12 +1,34 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import Login from './Login';
 import firebase from "firebase";
 import firebaseConfig from "../firebase/config";
+import {AuthContext} from "../App";
 
 // import Post from './Post';
 
 class Register extends Component{
+    // const [email, setEmail] = useState("")
+    // const [password, setPassword] = setState("");
+    // const [error, setError] = setState("");
+
+    // const Auth = useContext(AuthContext);
+    // const handleForm = e => {
+    //     e.prevenDefault();
+    //     firebase
+    //     .auth()
+    //     .createUserWithEmailAndPassword(email, password)
+    //     .then(res => {
+    //         if(res.user) console.log("berhasil register");
+    //     })
+    //     .catch(e => {
+    //         console.log("gagal register");
+    //     });
+    //     // console.log(Auth);
+    //     // Auth.setLoggedIn(true);
+    // };
+
+
      constructor(props){
         super(props);
         if (!firebase.apps.length) {
@@ -61,6 +83,16 @@ class Register extends Component{
        let pass = this.refs.pass.value;
        let uid = this.refs.uid.value;
 
+       firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, pass)
+        .then(res => {
+            if(res.user) console.log("Berhasil sign");
+        })
+        .catch(e => {
+            console.log("gagal signup")
+        })
+
        if (uid && username && email && alamat && no && pass) {
            const { listProfil } = this.state;
            const indeksProfil = listProfil.findIndex(data => {
@@ -96,7 +128,7 @@ class Register extends Component{
             <div className="post-artikel">
               <h2>Form Pendaftaran</h2>
               <div className="form pb-2 border-bottom">
-              
+             <form >
                 <div className="form-group row ">
                     <label htmlFor="username" className="col-sm-2 col-form-label ">Usename</label>
                     <div className="col-sm-8">
@@ -107,7 +139,7 @@ class Register extends Component{
                 <div className="form-group row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-8">
-                        <input type="email" className="form-control  form-control-lg" id="email" name="email" ref = "email" />
+                        <input  type="email" className="form-control  form-control-lg" id="email" name="email" ref = "email" />
                     </div>
                 </div>                
 
@@ -128,16 +160,16 @@ class Register extends Component{
                 <div className="form-group row">
                     <label htmlFor="body" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-8">
-                        <input type="password" className="form-control form-control-lg" name="password" id="password" rows="3" ref="pass"/>
+                        <input  type="password" className="form-control form-control-lg" name="password" id="password" rows="3" ref="pass"/>
                         <input type= "hidden" name = "uid" ref = "uid"/>
                     </div>
                 </div>
                 
-                {/* <Link to="/login"> */}
+                <Link to="/login">
                 <button type="submit" className="btn btn-lg btn-primary pull-xs-right" onClick={this.handleTombolSimpan}>Daftar
                 </button>
-                {/* </Link> */}
-
+                </Link>
+            </form>
               </div>
             </div>
         )

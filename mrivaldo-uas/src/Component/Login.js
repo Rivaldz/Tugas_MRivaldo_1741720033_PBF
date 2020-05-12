@@ -35,6 +35,8 @@ const Login = () => {
       })
       .catch(e => {
         setErrors(e.message);
+        console.log("gagal login ")
+        window.alert("Gagal Login, Silahkan cek email dan password")
       });
     // console.log(Auth);
     // Auth.setLoggedIn(true);
@@ -79,10 +81,9 @@ const Login = () => {
                     />
                   </fieldset>
                 </fieldset>
-                <button type="submit">
+                <button type="submit" className="btn btn-lg btn-primary pull-xs-right"  >
                   Login
                 </button>
-                <span>{error}</span>
               </form>
             </div>
           </div>
