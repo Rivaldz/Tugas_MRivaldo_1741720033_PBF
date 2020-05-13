@@ -112,7 +112,7 @@ class Register extends Component{
            this.setState({listProfil});
        }
 
-       window.alert("Pendaftaran berhasil");
+       window.alert("Pendaftaran berhasil silahkan login untuk melanjutkan");
 
        this.refs.username.value = "";
        this.refs.email.value = "";

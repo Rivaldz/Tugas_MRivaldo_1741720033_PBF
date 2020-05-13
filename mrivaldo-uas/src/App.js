@@ -17,7 +17,6 @@ import {
   Route,
   Redirect,
   useHistory
-
   } from "react-router-dom";
 
 export const AuthContext = React.createContext(null);

@@ -8,7 +8,32 @@ import {
   Route 
   } from "react-router-dom";
 
+  import firebase from "firebase";
+
+const logout = () => {
+   firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+    console.log("berhasil keluar")
+    }).catch(function(error) {
+  // An error happened.
+    console.log("gagal logiut")
+    });
+
+}
+
 const Header = () => {
+
+  const handleLogout = e => {
+    e.preventDefault();
+   firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+    console.log("berhasil keluar")
+    }).catch(function(error) {
+  // An error happened.
+    console.log("gagal logiut")
+    });
+  }
+
     return(    
     <div className="App">
       <nav class="navbar fixed-top  navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark"> 
@@ -48,9 +73,8 @@ const Header = () => {
       </Link>
 
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form  class="form-inline my-2 my-lg-0" onSubmit = {e => handleLogout(e)}>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     </form>
   </div>
 </nav>
