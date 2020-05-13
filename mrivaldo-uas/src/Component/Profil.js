@@ -14,7 +14,7 @@ class Profile extends Component {
         // firebase.initializeApp(firebaseConfig);
 
         this.state = {
-            listArtikel: []
+            listProfil: []
         }
     }
 
@@ -42,49 +42,49 @@ class Profile extends Component {
         }
     }
 
-    handleHapusArtikel = (idArtikel) => {        // fungsi yang meng-handle button action hapus data
-        const {listArtikel} = this.state;
-        const newState = listArtikel.filter(data => {
-            return data.uid !== idArtikel;
-        });
-        this.setState({listArtikel: newState});
-    }
+    // handleHapusArtikel = (idArtikel) => {        // fungsi yang meng-handle button action hapus data
+    //     const {listArtikel} = this.state;
+    //     const newState = listArtikel.filter(data => {
+    //         return data.uid !== idArtikel;
+    //     });
+    //     this.setState({listArtikel: newState});
+    // }
 
-    handleTambahArtikel = (event) => {      // fungsi untuk meng-hadle form tambah data artikel
-        let formInsertArtikel = {...this.state.insertArtikel};      // clonning data state insertArtikel ke dalam variabel formInsertArtikel
-        let timestamp = new Date().getTime();                       // digunakan untuk menyimpan waktu (sebagai ID artikel)
-        formInsertArtikel['id'] = timestamp;
-        formInsertArtikel[event.target.name] = event.target.value;  // menyimpan data onchange ke formInsertArtikel sesuai dengan target yg diisi
-        this.setState({
-            insertArtikel: formInsertArtikel
-        });
-    }
+    // handleTambahArtikel = (event) => {      // fungsi untuk meng-hadle form tambah data artikel
+    //     let formInsertArtikel = {...this.state.insertArtikel};      // clonning data state insertArtikel ke dalam variabel formInsertArtikel
+    //     let timestamp = new Date().getTime();                       // digunakan untuk menyimpan waktu (sebagai ID artikel)
+    //     formInsertArtikel['id'] = timestamp;
+    //     formInsertArtikel[event.target.name] = event.target.value;  // menyimpan data onchange ke formInsertArtikel sesuai dengan target yg diisi
+    //     this.setState({
+    //         insertArtikel: formInsertArtikel
+    //     });
+    // }
 
-    handleTombolSimpan = (event) => {   
-       let title = this.refs.judulArtikel.value; 
-       let body = this.refs.isiArtikel.value; 
-       let uid = this.refs.uid.value; 
+    // handleTombolSimpan = (event) => {   
+    //    let title = this.refs.judulArtikel.value; 
+    //    let body = this.refs.isiArtikel.value; 
+    //    let uid = this.refs.uid.value; 
 
-       if (uid && title && body) {
-           const { listArtikel } = this.state;
-           const indeksArtikel = listArtikel.findIndex(data => {
-               return data.uid === uid;
-           });
-           listArtikel[indeksArtikel].title = title;
-           listArtikel[indeksArtikel].body = body;
-           this.setState({ listArtikel });
-       } 
-       else if ( title && body){
-           const uid = new Date().getTime().toString();
-           const { listArtikel } = this.state;
-           listArtikel.push({uid, title, body});
-           this.setState({listArtikel});
-       }
+    //    if (uid && title && body) {
+    //        const { listArtikel } = this.state;
+    //        const indeksArtikel = listArtikel.findIndex(data => {
+    //            return data.uid === uid;
+    //        });
+    //        listArtikel[indeksArtikel].title = title;
+    //        listArtikel[indeksArtikel].body = body;
+    //        this.setState({ listArtikel });
+    //    } 
+    //    else if ( title && body){
+    //        const uid = new Date().getTime().toString();
+    //        const { listArtikel } = this.state;
+    //        listArtikel.push({uid, title, body});
+    //        this.setState({listArtikel});
+    //    }
 
-       this.refs.judulArtikel.value = "";
-       this.refs.isiArtikel.value = "";
-       this.refs.uid.value = "";
-    }
+    //    this.refs.judulArtikel.value = "";
+    //    this.refs.isiArtikel.value = "";
+    //    this.refs.uid.value = "";
+    // }
 
     
   render(){
@@ -102,7 +102,7 @@ class Profile extends Component {
       <div class="col-md-8 kertas-biodata">
 
       <div class="card">
-      {this.state.listArtikel.map(artikel => {
+      {this.state.listProfil.map(artikel => {
           return(
           <table class="table">
             <tbody>

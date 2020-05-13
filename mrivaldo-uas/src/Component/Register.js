@@ -8,27 +8,7 @@ import {AuthContext} from "../App";
 // import Post from './Post';
 
 class Register extends Component{
-    // const [email, setEmail] = useState("")
-    // const [password, setPassword] = setState("");
-    // const [error, setError] = setState("");
-
-    // const Auth = useContext(AuthContext);
-    // const handleForm = e => {
-    //     e.prevenDefault();
-    //     firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then(res => {
-    //         if(res.user) console.log("berhasil register");
-    //     })
-    //     .catch(e => {
-    //         console.log("gagal register");
-    //     });
-    //     // console.log(Auth);
-    //     // Auth.setLoggedIn(true);
-    // };
-
-
+ 
      constructor(props){
         super(props);
         if (!firebase.apps.length) {

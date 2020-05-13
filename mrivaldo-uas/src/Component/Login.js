@@ -17,6 +17,8 @@ import {
 
 
 const Login = () => {
+  const loginStatus = 0;
+
   if(!firebase.apps.length) {
           firebase.initializeApp(firebaseConfig);
         }
@@ -31,15 +33,16 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        if (res.user) console.log("login sukses");
+        if (res.user){ 
+          window.alert("Berhasil Login")
+        }
       })
       .catch(e => {
         setErrors(e.message);
         console.log("gagal login ")
         window.alert("Gagal Login, Silahkan cek email dan password")
       });
-    // console.log(Auth);
-    // Auth.setLoggedIn(true);
+
   };
 
    return(
@@ -81,9 +84,11 @@ const Login = () => {
                     />
                   </fieldset>
                 </fieldset>
+                <Link to = "/profile">
                 <button type="submit" className="btn btn-lg btn-primary pull-xs-right"  >
                   Login
                 </button>
+                </Link>
               </form>
             </div>
           </div>
